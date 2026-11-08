@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureBank - Robert Dunn Checking Account</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #667eea; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: white; padding: 30px; border-radius: 16px; max-width: 400px; text-align: center; }
+        h1 { color: #1a365d; }
+        input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        button { background: #667eea; color: white; padding: 12px; border: none; border-radius: 8px; width: 100%; cursor: pointer; }
+        .balance { font-size: 2em; color: #1a365d; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SecureBank</h1>
+        <p>Robert Dunn Checking Account</p>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username: RobDunn1011" required>
+            <input type="password" id="password" placeholder="Password: Dunnrob26$" required>
+            <button type="submit">Login</button>
+        </form>
+        <div id="dashboard" style="display:none;">
+            <div class="balance">Balance: $3,000.00</div>
+            <p>PIN: 2505</p>
+            <button onclick="alert('Transfer menu - use PIN 2505')">Transfer</button>
+            <button onclick="alert('Other banking options')">More Options</button>
+            <button onclick="location.reload()">Logout</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            if (document.getElementById('username').value === 'RobDunn1011' && document.getElementById('password').value === 'Dunnrob26$') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+            } else {
+                alert('Invalid credentials');
+            }
+        };
+    </script>
+</body>
+</html>
